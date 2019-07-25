@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Shopping App from scratch',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple[300],
+        primarySwatch: Colors.deepPurpleAccent[300],
         accentColor: Colors.yellow,
         fontFamily: 'Lato',
       ),
