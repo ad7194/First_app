@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../screens/product_detail_screen.dart';
+
 //The reason for building this widget is for itembuilder
 
 class ProductItem extends StatelessWidget {
@@ -18,13 +20,25 @@ class ProductItem extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(14),
       child: GridTile(
-        child: Image.network(
-          imageUrl,
-          fit: BoxFit.cover,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (ctx) => ProductDetailScreen(title),
+              ),
+            );
+          },
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.cover,
+          ),
         ),
         header: GridTileBar(
           backgroundColor: Colors.redAccent,
-                    title: Text(title,textAlign: TextAlign.center,),
+          title: Text(
+            title,
+            textAlign: TextAlign.center,
+          ),
         ),
         footer: GridTileBar(
           //to give a manual background color

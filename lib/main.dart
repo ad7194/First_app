@@ -11,14 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Shopping App from scratch',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.deepPurpleAccent[300],
         accentColor: Colors.yellow,
         fontFamily: 'Lato',
-
       ),
       //This wil load the screen data on the loadup
       home: ProductOverviewScreen(),
     );
   }
 }
-
