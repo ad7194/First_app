@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // We use provider to handle the big data list i.e, list of all products
 
 //Need to define a list of product for that need to import product modal
-import '../models/product.dart';
+import './product.dart';
 
 //Here we have used mixin method same as extend method
 //Mixing is like merging properties and methods to existing class and we don't return the inherited class instance
@@ -51,7 +51,6 @@ class Products with ChangeNotifier {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
-
 //Adding the getter here
 //To make a getter need to add get keywork before the instance name
 //we will return the copy of _items
@@ -63,6 +62,11 @@ class Products with ChangeNotifier {
 //why we are doing this ???
 //As in flutter or dart all the objects are reference type. If we would return the _items directly then we are returnig the pointer at the objet in memory so in application where the
 //user is getting access to class product or and then gets access to _items the user gets access to the direct list of _items which can grant access to edit items
+
+//returning the items where favorite is set to true
+  List<Product> get favoriteItems {
+    return _items.where((item) => item.isFavorite).toList();
+  }
 
   Product findById(String id) {
     return _items.firstWhere((a) => a.id == id);

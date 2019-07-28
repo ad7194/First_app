@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
 //the place we could be interested now are I mean to use the providers are:
 // products_overview_screen.dart in screens
 
-    return ChangeNotifierProvider(
-      builder: (ctx) => Products(),
+    return ChangeNotifierProvider.value(
+      value: Products(),
       child: MaterialApp(
           title: 'Shopping App from scratch',
           theme: ThemeData(
