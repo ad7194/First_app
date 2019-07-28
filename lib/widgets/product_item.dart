@@ -2,6 +2,7 @@ import 'package:first_app/providers/product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../screens/product_detail_screen.dart';
+import '../providers/cart.dart';
 
 //The reason for building this widget is for itembuilder
 
@@ -17,6 +18,11 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
+
+//NOTE:- we will add parameter listen: false when we don't want the method to be rebuild for the change notifier event
+    //For cart
+    final cart = Provider.of<Cart>(context, listen: false);
+
     //Image -> to use image viewer to show image
     //fit -> to set the image design to fit depending to distribute equal space to all image by cropping them
     return ClipRRect(
@@ -64,7 +70,9 @@ class ProductItem extends StatelessWidget {
             icon: Icon(
               Icons.shopping_cart,
             ),
-            onPressed: () {},
+            onPressed: () {
+              cart.addItem(product.id, product.title, product.price);
+            },
             color: Theme.of(context).accentColor,
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:first_app/providers/cart.dart';
 import 'package:flutter/material.dart';
 
 //import the screen which will load the data
@@ -10,6 +11,8 @@ import './screens/product_detail_screen.dart';
 
 //importing the provider
 import './providers/products.dart';
+
+import './providers/cart.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,8 +32,17 @@ class MyApp extends StatelessWidget {
 //the place we could be interested now are I mean to use the providers are:
 // products_overview_screen.dart in screens
 
-    return ChangeNotifierProvider.value(
-      value: Products(),
+//We can group multiple ChangeNotfierProvider by provider
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: Products(),
+        ),
+        ChangeNotifierProvider.value(
+          value: Cart(),
+        ),
+      ],
       child: MaterialApp(
           title: 'Shopping App from scratch',
           theme: ThemeData(

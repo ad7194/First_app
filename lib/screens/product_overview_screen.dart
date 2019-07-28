@@ -54,6 +54,10 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               ),
             ],
           ),
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {},
+          ),
         ],
       ),
       body: ProductsGrid(_showOnlyFavorites),
